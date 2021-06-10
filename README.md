@@ -1,2 +1,3 @@
 # zrob-je-wszystkie
  
+pomocy
