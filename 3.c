@@ -7,9 +7,9 @@ struct car{
 };
 void add_auto(struct car* samochod){
     printf("Podaj markę:\n");
-    scanf("%s", samochod->marka);
+    scanf("%50s", samochod->marka);
     printf("Podaj model:\n");
-    scanf("%s", samochod->model);
+    scanf("%50s", samochod->model);
     printf("Podaj cene:\n");
     scanf("%d", samochod->cena);
 }
@@ -20,7 +20,14 @@ void show(struct car in){
 }
 void show_brand(struct car*komis,char*brand,int n){
     for(int i=0;i<n;i++){
-        if(brand==komis[i].marka){
+        int test=1;
+        for(int j=0;brand[j]!=0;j++){
+            if(brand[j]!=komis[i].marka[j]){
+                test=0;
+                break;
+            }
+        }
+        if(test==1){
             show(komis[i]);
         }
     }
@@ -38,6 +45,7 @@ main(){
     struct car ko[2]={c1,c2};
     //show(ko[0]);
     add_auto(&ko[0]);
+
     //add_auto(ko,1);
     return 0;
 }
